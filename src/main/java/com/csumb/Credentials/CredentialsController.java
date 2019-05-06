@@ -84,7 +84,7 @@ public class CredentialsController{
      required: User object to add
      response: successful-> returns null
                failure -> returns user
-    */
+    
     @CrossOrigin(origins = "*")
     @DeleteMapping("/removeuser/{userId}")
     public User removeUser(@PathVariable String userId) {
@@ -96,5 +96,6 @@ public class CredentialsController{
         }
         return null;
     }
+     */
 }
 
