@@ -86,10 +86,10 @@ public class CredentialsController{
                failure -> returns user
     */
     @CrossOrigin(origins = "*")
-    @GetMapping("/adduser")
-    public User removeUser(@RequestBody User u) {
+    @DeleteMapping("/removeuser/{userId}")
+    public User removeUser(@PathVariable String userId) {
         try {
-            userRepo.insert(u);
+            userRepo.remove(userRepo.findById(userId).get())
         }
         catch (Exception e){
             return u;
