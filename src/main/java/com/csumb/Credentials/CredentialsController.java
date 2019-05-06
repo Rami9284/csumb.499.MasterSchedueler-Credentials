@@ -38,7 +38,7 @@ public class CredentialsController{
     @CrossOrigin(origins = "*")
     @GetMapping("/findusername/{username}")
     public User findUser(@PathVariable String username) {
-       //implementation
+         return userRepo.findByUsername(username);
     }
 
      /*
@@ -48,7 +48,7 @@ public class CredentialsController{
     @CrossOrigin(origins = "*")
     @GetMapping("/finduserId/{id}")
     public User findUserById(@PathVariable String id) {
-        //implementation
+        return userRepo.findById(id).get();
     }
 
     //===============Adding a User===================
@@ -60,7 +60,13 @@ public class CredentialsController{
     @CrossOrigin(origins = "*")
     @PostMapping("/adduser")
     public User addUser(@RequestBody User u) {
-        //implementation
+        try {
+            userRepo.insert(u);
+        }
+        catch (Exception e){
+            return u;
+        }
+        return null;
     }
 
     //===============Update a User===================
@@ -70,7 +76,7 @@ public class CredentialsController{
      @CrossOrigin(origins = "*")
      @PutMapping("/updateuser")
      public User updateUser(@RequestBody User u){
-         //implementation
+         return userRepo.save(u);
      }
 
      //===============Removing a User===================
@@ -80,13 +86,12 @@ public class CredentialsController{
                failure -> returns user
     
     @CrossOrigin(origins = "*")
-    @DeleteMapping("/removeuser/{userId}")
-    public User removeUser(@PathVariable String userId) {
+    public String removeUser(@PathVariable String userId) {
         try {
-            userRepo.remove(userRepo.findById(userId).get())
+            userRepo.delete(userRepo.findById(userId).get());
         }
         catch (Exception e){
-            return u;
+            return userId;
         }
         return null;
     }
