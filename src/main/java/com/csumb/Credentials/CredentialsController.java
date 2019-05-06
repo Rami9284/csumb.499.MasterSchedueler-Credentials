@@ -28,7 +28,9 @@ public class CredentialsController{
     @CrossOrigin(origins = "*")
     @GetMapping("/users")
     public List<User> getusers() {
+        
         return userRepo.findAll();
+
     }
 
     /*
