@@ -32,8 +32,7 @@ public class CredentialsController{
         return userRepo.findAll();
 
     }
-
-    /*
+   /*
      required: String variable containing the username of a user
      response: returns users
     */
