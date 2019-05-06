@@ -28,17 +28,17 @@ public class CredentialsController{
     @CrossOrigin(origins = "*")
     @GetMapping("/users")
     public List<User> getusers() {
-        return userRepo.findAll();
+        //implementation
     }
 
     /*
      required: String variable containing the username of a user
-     response: returns users
+     response: returns user
     */
     @CrossOrigin(origins = "*")
     @GetMapping("/findusername/{username}")
     public User findUser(@PathVariable String username) {
-        return userRepo.findByUsername(username);
+       //implementation
     }
 
      /*
@@ -48,7 +48,7 @@ public class CredentialsController{
     @CrossOrigin(origins = "*")
     @GetMapping("/finduserId/{id}")
     public User findUserById(@PathVariable String id) {
-        return userRepo.findById(id).get();
+        //implementation
     }
 
     //===============Adding a User===================
@@ -60,13 +60,7 @@ public class CredentialsController{
     @CrossOrigin(origins = "*")
     @PostMapping("/adduser")
     public User addUser(@RequestBody User u) {
-        try {
-            userRepo.insert(u);
-        }
-        catch (Exception e){
-            return u;
-        }
-        return null;
+        //implementation
     }
 
     //===============Update a User===================
@@ -76,7 +70,7 @@ public class CredentialsController{
      @CrossOrigin(origins = "*")
      @PutMapping("/updateuser")
      public User updateUser(@RequestBody User u){
-         return userRepo.save(u);
+         //implementation
      }
 
      //===============Removing a User===================
