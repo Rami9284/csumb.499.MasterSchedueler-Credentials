@@ -40,7 +40,7 @@ Micro service is deployed on Heroku.  https://master-scheduler-admin.herokuapp.c
     @CrossOrigin(origins = "*")
     @GetMapping("/users")
     public List<User> getusers() {
-        return userRepo.findAll();
+        //implementation
     }
 
     /*
@@ -50,7 +50,7 @@ Micro service is deployed on Heroku.  https://master-scheduler-admin.herokuapp.c
     @CrossOrigin(origins = "*")
     @GetMapping("/findusername/{username}")
     public User findUser(@PathVariable String username) {
-        return userRepo.findByUsername(username);
+        //implementation
     }
 
      /*
@@ -60,7 +60,7 @@ Micro service is deployed on Heroku.  https://master-scheduler-admin.herokuapp.c
     @CrossOrigin(origins = "*")
     @GetMapping("/finduserId/{id}")
     public User findUserById(@PathVariable String id) {
-        return userRepo.findById(id).get();
+        //implementation
     }
 
     //===============Adding a User===================
@@ -72,13 +72,7 @@ Micro service is deployed on Heroku.  https://master-scheduler-admin.herokuapp.c
     @CrossOrigin(origins = "*")
     @PostMapping("/adduser")
     public User addUser(@RequestBody User u) {
-        try {
-            userRepo.insert(u);
-        }
-        catch (Exception e){
-            return u;
-        }
-        return null;
+        //implementation
     }
 
     //===============Update a User===================
@@ -88,7 +82,7 @@ Micro service is deployed on Heroku.  https://master-scheduler-admin.herokuapp.c
      @CrossOrigin(origins = "*")
      @PutMapping("/updateuser")
      public User updateUser(@RequestBody User u){
-         return userRepo.save(u);
+         //implementation
      }
 
      //===============Removing a User===================
@@ -100,12 +94,6 @@ Micro service is deployed on Heroku.  https://master-scheduler-admin.herokuapp.c
     @CrossOrigin(origins = "*")
     @DeleteMapping("/removeuser/{userId}")
     public User removeUser(@PathVariable String userId) {
-        try {
-            userRepo.remove(userRepo.findById(userId).get())
-        }
-        catch (Exception e){
-            return u;
-        }
-        return null;
+        //implementation
     }
 }
